@@ -14,6 +14,7 @@ Stampare le stesse informazioni su DOM sottoforma di stringhe
 */
 
 /* SVOLGIMENTO */
+const outputContainer = document.getElementById("container");
 
 // Creo un Array di stringhe (copiate e incollate da file esterno)
 let teamArr = [
@@ -25,7 +26,8 @@ let teamArr = [
     "Barbara Ramos,Graphic Designer,barbara-ramos-graphic-designer.jpg",
 ]
 
-/* MILESTONE 0: */
+/* MILESTONE 0 */
+let outDiv = document.createElement("div");
 
 // Ciclo per far passare il processo a tutti gli elementi del teamArr
 for (let i = 0; i < teamArr.length; i++) {
@@ -38,7 +40,26 @@ for (let i = 0; i < teamArr.length; i++) {
     teamArr[i].ruolo = temp[1];
     teamArr[i].foto = temp[2];   
 
-    /* MILESTONE 1: */
+    /* MILESTONE 1 */
     console.log(teamArr[i]);
+
+    /* MILESTONE 2 */
+    let objectInfo = PrintObjectProperties(teamArr[i]);
+    outDiv = document.createElement("div");
+    outDiv.append(objectInfo);
+    outputContainer.append(outDiv);
 }
 console.log(teamArr);
+
+
+/* FUNCTIONS */
+
+function PrintObjectProperties(objectName) {   
+    for (let key in objectName) {                
+        const div = document.createElement("div");
+        div.append(objectName[key]);
+        outDiv.append(div);
+        console.log(objectName[key]);
+    }
+     
+}
