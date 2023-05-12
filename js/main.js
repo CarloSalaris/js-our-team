@@ -34,7 +34,10 @@ let WayneBarnettObj = {};
 for (let i = 0; i < WayneBarnettArr.length; i++) {
     WayneBarnettObj.nome = WayneBarnettArr[0];
     WayneBarnettObj.ruolo = WayneBarnettArr[1];
-    WayneBarnettObj.foto = WayneBarnettArr[2];    
+    WayneBarnettObj.foto = WayneBarnettArr[2];   
 }
 
+teamArr[0] = WayneBarnettObj;
+
 console.log(WayneBarnettObj);
+console.log(teamArr);
