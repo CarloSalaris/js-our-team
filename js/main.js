@@ -1,4 +1,5 @@
-/* CONSEGNA
+/*
+CONSEGNA
 
 - Utilizzando i dati forniti, creare un array di oggetti per rappresentare i membri del team. Ogni membro è caratterizzato dalle seguenti informazioni: nome, ruolo e foto.
 
@@ -10,11 +11,11 @@ Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e 
 
 - MILESTONE 2:
 Stampare le stesse informazioni su DOM sottoforma di stringhe
-
 */
 
 /* SVOLGIMENTO */
 const outputContainer = document.getElementById("container");
+let objDiv, propDiv;
 
 // Creo un Array di stringhe (copiate e incollate da file esterno)
 let teamArr = [
@@ -26,7 +27,7 @@ let teamArr = [
     "Barbara Ramos,Graphic Designer,barbara-ramos-graphic-designer.jpg",
 ]
 
-/* MILESTONE 0 */
+/* MILESTONE 0 - Trasformo le stringhe in oggetti */
 // Ciclo per far passare il processo a tutti gli elementi del teamArr
 for (let i = 0; i < teamArr.length; i++) {
     // "splitto" ogni stringa (array)
@@ -38,37 +39,30 @@ for (let i = 0; i < teamArr.length; i++) {
     teamArr[i].ruolo = temp[1];
     teamArr[i].foto = temp[2];   
 
-/* MILESTONE 1 */
     console.log(teamArr[i]);
 
-/* MILESTONE 2 */
-    let outDiv = document.createElement("div");
-    outDiv.classList.add("outDiv");    
-    
-    for (let key in teamArr[i]) {
-        let intDiv = document.createElement("div");                
-        intDiv.append(teamArr[i][key]);
-        outDiv.append(intDiv);
-    }
+/* MILESTONE 1 - Stampo le proprietà in console */
+    // incluso nella funzione PrintObjectProperties
 
-    outputContainer.append(outDiv)
-     
-    /* 
-    PrintObjectProperties(teamArr[i]);
-    */
+/* MILESTONE 2 - Stampo nel DOM */
+    // Creo outDiv per ogni oggetto (contenitore delle proprietà)
+    objDiv = document.createElement("div");
+    // assegno una classe per gestirlo in CSS
+    objDiv.classList.add("objDiv");    
+    // Richiamo funzione di stampa proprietà per dato oggetto
+    PrintObjectProperties(teamArr[i]);     
+    outputContainer.append(objDiv)   
 }
-
 console.log(teamArr);
 
-
 /* FUNCTIONS */
-
+// Stampa proprietà di un oggetto prestabilito
 function PrintObjectProperties(objectName) {   
     for (let key in objectName) {
-        intDiv = document.createElement("div");                
-        intDiv.append(objectName[key]);
-        outDiv.append(intDiv);
-        console.log(intDiv);
-    }
-     
+        propDiv = document.createElement("div");                
+        propDiv.append(objectName[key]);
+        objDiv.append(propDiv);
+        /* MILESTONE 1 - Stampo le proprietà in console */
+        console.log(objectName[key]);
+    }     
 }
