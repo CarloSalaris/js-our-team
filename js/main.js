@@ -27,8 +27,6 @@ let teamArr = [
 ]
 
 /* MILESTONE 0 */
-let outDiv = document.createElement("div");
-
 // Ciclo per far passare il processo a tutti gli elementi del teamArr
 for (let i = 0; i < teamArr.length; i++) {
     // "splitto" ogni stringa (array)
@@ -40,26 +38,37 @@ for (let i = 0; i < teamArr.length; i++) {
     teamArr[i].ruolo = temp[1];
     teamArr[i].foto = temp[2];   
 
-    /* MILESTONE 1 */
+/* MILESTONE 1 */
     console.log(teamArr[i]);
 
-    /* MILESTONE 2 */
-    let objectInfo = PrintObjectProperties(teamArr[i]);
-    outDiv = document.createElement("div");
-    outDiv.append(objectInfo);
-    outputContainer.append(outDiv);
+/* MILESTONE 2 */
+    let outDiv = document.createElement("div");
+    outDiv.classList.add("outDiv");    
+    
+    for (let key in teamArr[i]) {
+        let intDiv = document.createElement("div");                
+        intDiv.append(teamArr[i][key]);
+        outDiv.append(intDiv);
+    }
+
+    outputContainer.append(outDiv)
+     
+    /* 
+    PrintObjectProperties(teamArr[i]);
+    */
 }
+
 console.log(teamArr);
 
 
 /* FUNCTIONS */
 
 function PrintObjectProperties(objectName) {   
-    for (let key in objectName) {                
-        const div = document.createElement("div");
-        div.append(objectName[key]);
-        outDiv.append(div);
-        console.log(objectName[key]);
+    for (let key in objectName) {
+        intDiv = document.createElement("div");                
+        intDiv.append(objectName[key]);
+        outDiv.append(intDiv);
+        console.log(intDiv);
     }
      
 }
