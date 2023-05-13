@@ -26,6 +26,7 @@ img {
 }
 
 div.objDiv {
+    padding: 10px;
     margin: 20px;
     background-color: #ffffff;
     width: calc((100% / 3) - 40px);

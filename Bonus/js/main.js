@@ -66,16 +66,24 @@ console.log(teamArr);
 /* FUNCTIONS */
 // Stampa proprietà di un oggetto prestabilito
 function PrintObjectProperties(objectName) {   
+    let name, role, picture;
     for (let key in objectName) {
         propDiv = document.createElement("div");
         // BONUS 1: Trasformare la stringa foto in una immagine effettiva
-        if (objectName[key].includes(".jpg")) {
-            propDiv.innerHTML = `<img src="img/${objectName[key]}" alt="profile image">`;
+        if (key == "foto") {
+            picture = objectName[key];
+        }else if (key == "nome") {
+            name = `<div>${objectName[key]}</div>`
         }else {
-            propDiv.append(objectName[key]);
+            role = `<div>${objectName[key]}</div>`
         } 
-        objDiv.append(propDiv);
+        
         /* MILESTONE 1 - Stampo le proprietà in console */
         console.log(objectName[key]);
+        objDiv.append(propDiv);
     }     
+    propDiv.innerHTML = `<img src="img/${picture}" alt="profile image">`;
+    propDiv.innerHTML += name;
+    propDiv.innerHTML += role;
+    
 }
