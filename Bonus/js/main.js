@@ -17,7 +17,9 @@ Stampare le stesse informazioni su DOM sottoforma di stringhe
 */
 
 /* BONUS
-BONUS 1: Trasformare la stringa foto in una immagine effettiva */
+BONUS 1: Trasformare la stringa foto in una immagine effettiva
+BONUS 2: Organizzare i singoli membri in card/schede
+*/
 
 /* SVOLGIMENTO */
 const outputContainer = document.getElementById("container");
