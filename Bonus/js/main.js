@@ -58,32 +58,31 @@ for (let i = 0; i < teamArr.length; i++) {
     // assegno una classe per gestirlo in CSS
     objDiv.classList.add("objDiv");    
     // Richiamo funzione di stampa proprietà per dato oggetto
-    PrintObjectProperties(teamArr[i]);     
+    PrintObjectProperties(teamArr[i], "foto", "nome", "ruolo");     
     outputContainer.append(objDiv)   
 }
 console.log(teamArr);
 
 /* FUNCTIONS */
 // Stampa proprietà di un oggetto prestabilito
-function PrintObjectProperties(objectName) {   
+function PrintObjectProperties(objectName, key1, key2, key3) {   
     let name, role, picture;
     for (let key in objectName) {
         propDiv = document.createElement("div");
         // BONUS 1: Trasformare la stringa foto in una immagine effettiva
-        if (key == "foto") {
-            picture = objectName[key];
-        }else if (key == "nome") {
-            name = `<div>${objectName[key]}</div>`
-        }else {
-            role = `<div>${objectName[key]}</div>`
+        if (key == key1) {
+            picture = `<img src="img/${objectName[key]}" alt="profile image">`;
+        }else if (key == key2) {
+            name = `<div class="cardName">${objectName[key]}</div>`
+        }else if (key == key3) {
+            role = `<div class="cardRole">${objectName[key]}</div>`
         } 
         
         /* MILESTONE 1 - Stampo le proprietà in console */
         console.log(objectName[key]);
         objDiv.append(propDiv);
     }     
-    propDiv.innerHTML = `<img src="img/${picture}" alt="profile image">`;
+    propDiv.innerHTML += picture;
     propDiv.innerHTML += name;
-    propDiv.innerHTML += role;
-    
+    propDiv.innerHTML += role;   
 }
