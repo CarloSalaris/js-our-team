@@ -23,7 +23,7 @@ BONUS 2: Organizzare i singoli membri in card/schede
 
 /* SVOLGIMENTO */
 const outputContainer = document.getElementById("container");
-let objDiv, propDiv;
+// let objDiv, propDiv;
 
 // Creo un Array di stringhe (copiate e incollate da file esterno)
 let teamArr = [
@@ -49,12 +49,36 @@ for (let i = 0; i < teamArr.length; i++) {
 
     console.log(teamArr[i]);
 
+    /* MILESTONE 1 - Stampo le proprietà in console */
+    for (const key in teamArr[i]) {
+        console.log(teamArr[i][key])
+    }
+}
+
+/* BONUS 2: Organizzare i singoli membri in card/schede */
+for (let i = 0; i < teamArr.length; i++) {
+    const objectiesimo = teamArr[i];
+
+    const userName = objectiesimo.nome;
+    const userRole = objectiesimo.ruolo;
+    const userImage = objectiesimo.foto;
+
+    const cardElement = `<div class="card">
+                            <img src="img/${userImage}" alt="picture">
+                            <div class="cardElementDescription cardName">${userName}</div>
+                            <div class="cardElementDescription">${userRole}</div>
+                        </div>`
+    outputContainer.innerHTML += cardElement;
+}
+
+
+// VECCHIO SVOLGIMENTO
 /* MILESTONE 1 - Stampo le proprietà in console */
     // incluso nella funzione PrintObjectProperties
 
 /* MILESTONE 2 - Stampo nel DOM */
     // Creo outDiv per ogni oggetto (contenitore delle proprietà)
-    objDiv = document.createElement("div");
+ /*    objDiv = document.createElement("div");
     // assegno una classe per gestirlo in CSS
     objDiv.classList.add("objDiv");    
     // Richiamo funzione di stampa proprietà per dato oggetto
@@ -62,10 +86,10 @@ for (let i = 0; i < teamArr.length; i++) {
     outputContainer.append(objDiv)   
 }
 console.log(teamArr);
-
+ */
 /* FUNCTIONS */
 // Stampa proprietà di un oggetto prestabilito
-function PrintObjectProperties(objectName, key1, key2, key3) {   
+/* function PrintObjectProperties(objectName, key1, key2, key3) {   
     let name, role, picture;
     for (let key in objectName) {
         propDiv = document.createElement("div");
@@ -77,12 +101,13 @@ function PrintObjectProperties(objectName, key1, key2, key3) {
         }else if (key == key3) {
             role = `<div class="cardRole">${objectName[key]}</div>`
         } 
-        
+         */
         /* MILESTONE 1 - Stampo le proprietà in console */
-        console.log(objectName[key]);
+ /*        console.log(objectName[key]);
         objDiv.append(propDiv);
     }     
     propDiv.innerHTML += picture;
     propDiv.innerHTML += name;
     propDiv.innerHTML += role;   
 }
+ */
